@@ -8,8 +8,7 @@ $pages = 1; // Maximum number of pages to scrape. Up to 23 pages available as of
 $data = array();
 
 for ($x = 1; $x <= $pages; $x++) {
-    $file .= $x;
-    $html = file_get_html($file);
+    $html = file_get_html($file . $x);
     
     foreach($html->find('.space-container') as $spacecontainer) {
         $venue = new stdClass();

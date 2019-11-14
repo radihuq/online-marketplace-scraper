@@ -13,6 +13,9 @@ This scraper uses the simple_html_dom_PHP library. You can find the [original pr
 2. Edit the `$pages` variable with the maximum number of pages you wish to scrape
 3. Run the script
 
+### Screenshot
+![Console Screenshot With Parsed Data](./screenshot.png)
+
 ### Limitations
 This scraper was built for & tested on one online marketplace; it probably will not work with many other online marketplaces.
 
