@@ -86,6 +86,6 @@ for ($x = 1; $x <= $pages; $x++) {
     }
 } 
 
-echo json_encode($data);
+// echo json_encode($data);
 
 ?>
