@@ -9,6 +9,7 @@ Clone this repo to your machine
 This scraper uses the simple_html_dom_PHP library. You can find the [original project here](https://simplehtmldom.sourceforge.io/), or check out an [uploaded repo here.](https://github.com/samacs/simple_html_dom) 
 
 ### Usage
+0. (Optional) uncomment & provide database credentials to write to database
 1. Edit the `$file` variable with the website you wish to scrape.
 2. Edit the `$pages` variable with the maximum number of pages you wish to scrape
 3. Run the script
