@@ -2,6 +2,18 @@
 
 require 'simple_html_dom.php';
 
+// //Connect to Database
+// $servername = "";
+// $username = "";
+// $password = "";
+// $dbname = "";
+
+// $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// if (!$conn) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+
 $file = "https://thisopenspace.com/spaces/in/Toronto--ON?price_unit=hour&page=";
 $pages = 1; // Maximum number of pages to scrape. Up to 23 pages available as of Nov 14, 2019
 
@@ -17,8 +29,8 @@ for ($x = 1; $x <= $pages; $x++) {
         foreach($spacecontainer->find('.space') as $space) {
             $datalat = 'data-lat';
             $datalng = 'data-lng';
-            $venue->datalat = $space->$datalat;
-            $venue->datalng = $space->$datalng;
+            $venue->lat = $space->$datalat;
+            $venue->lng = $space->$datalng;
         }
 
         //find photo
@@ -55,10 +67,25 @@ for ($x = 1; $x <= $pages; $x++) {
                     $venue->name = $venueNameClean;
             }
         }
+
         array_push($data, $venue);
+
+        // //Write to Database
+        // $stmt = $conn->prepare(INSERT INTO venues (name, lat, lng, img, cost, sqft, link) VALUES (?, ?, ?, ?, ?, ?, ?));
+        // $stmt->bind_param("sssssss", $name, $lat, $lng, $img, $cost, $sqft, $link);
+
+        // $name = $venue->name;
+        // $lat = $venue->lat;
+        // $lng = $venue->lng;
+        // $img = $venue->img;
+        // $cost = $venue->cost;
+        // $sqft = $venue->sqft;
+        // $link = $venue->link;
+
+        // $stmt->execute();
     }
 } 
 
-// echo json_encode($data);
+echo json_encode($data);
 
 ?>
